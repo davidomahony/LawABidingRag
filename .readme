@@ -1,0 +1,8 @@
+# Internal Notes
+Going to try and create this law abiding bot, trained on past irish law cases. Going to use LLama
+
+## General Path
+
+1. Data is loaded through connectors
+2. Data is indexed using llamaindex
+3. Data can then be queried.
