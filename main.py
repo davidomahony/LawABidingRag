@@ -7,6 +7,7 @@ from llama_index.core import (
 )
 from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.openai import OpenAIEmbedding
+from llama_index.readers.smart_pdf_loader import SmartPDFLoader
 from llama_index.llms.openai import OpenAI
 from llama_index.core import (download_loader, Settings)
 import os
@@ -18,24 +19,7 @@ if not api_key:
 
 persist_dir = "./storage_mini"
 
-# Download the BeautifulSoupWebReader loader
-BeautifulSoupWebReader = download_loader("BeautifulSoupWebReader")
-
-# Create an instance of the loader
-loader = BeautifulSoupWebReader()
-
-# Load data from a URL
-documents = loader.load_data(urls=[
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC63.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC64.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC65.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC66.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC67.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC68.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC69.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC70.html",
-    "https://www.bailii.org/ie/cases/IEHC/2024/2024IEHC71.html"
-])
+documents = SimpleDirectoryReader("C:/Users/daver/Desktop/Rag/law").load_data()
 
 # Use Azure's OpenAI embedding model
 embed_model = OpenAIEmbedding(
@@ -43,13 +27,17 @@ embed_model = OpenAIEmbedding(
     model_name="text-embedding-ada-002"
 )
 
+print(documents)
+
 splitter = SemanticSplitterNodeParser(
-    buffer_size=1, 
+    buffer_size=10, 
     breakpoint_percentile_threshold=95, 
     embed_model=embed_model
 )
 
 nodes = splitter.get_nodes_from_documents(documents, show_progress=True)
+
+print(nodes)
 
 # Use OpenAI's LLM
 llm = OpenAI(
@@ -75,13 +63,7 @@ index = load_index_from_storage(storage_context)
 # Create the query engine
 query_engine = index.as_query_engine()
 
-query = "Explain market bonds?"
-
-resp = query_engine.query(query)
-
-print(resp)
-
-query = "Tell me about BALLYBODEN TIDY TOWNS GROUP"
+query = "Tell me about EAMON CARTHY"
 
 resp = query_engine.query(query)
 
