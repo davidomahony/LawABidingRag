@@ -25,3 +25,21 @@ e responsibilities of landlords in maintaining the property.
 4. **Kenny Homes & Co Ltd v. Leonard**: This case is relevant as it discusses the landlord's duty to provide a habitable property and the tenant's right to withhold rent if the property is not maintained. It illustrates the balance of rights and responsibilities between landlords and tenants.
 
 5. **Irish Shell Ltd v. Elm Motors Ltd**: This case is important because it deals with the issue of subletting and the landlord's consent. It provides guidance on the conditions under which a tenant can sublet the property and the landlord's right to approve or deny such arrangements.
+
+
+## TODO
+- Make more efficent
+    > Cost
+    > Time
+- Identify ideal prompts
+- Make an API out of it.
+- Compare against other models.
+- Build frontend for it.
+- Check if its actually useful
+- Investigate
+    - Is sematic splitter the best
+    - Could this be loaded just with HTML pages, this is a big one because we could add links
+
+### MVP
+- Frontend working with backend
+- Basic chatbot
