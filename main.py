@@ -19,7 +19,7 @@ if not api_key:
 
 persist_dir = "./storage_mini"
 
-documents = SimpleDirectoryReader("C:/Users/daver/Desktop/Rag/law").load_data()
+documents = SimpleDirectoryReader("C:/Users/daver/Desktop/Rag/law/NotAsSmall").load_data()
 
 # Use Azure's OpenAI embedding model
 embed_model = OpenAIEmbedding(
@@ -27,26 +27,8 @@ embed_model = OpenAIEmbedding(
     model_name="text-embedding-ada-002"
 )
 
-print(documents)
-
-splitter = SemanticSplitterNodeParser(
-    buffer_size=10, 
-    breakpoint_percentile_threshold=95, 
-    embed_model=embed_model
-)
-
-nodes = splitter.get_nodes_from_documents(documents, show_progress=True)
-
-print(nodes)
-
-# Use OpenAI's LLM
-llm = OpenAI(
-    api_key=api_key,
-    model_name="gpt-3.5-turbo"
-)
-
 # Set the global settings
-Settings.llm = OpenAI(model="gpt-3.5-turbo", temperature=0.1)
+Settings.llm = OpenAI(model="gpt-4o", temperature=0.1)
 Settings.embed_model = OpenAIEmbedding(model="text-embedding-3-small", embed_batch_size=100)
 Settings.node_parser = SemanticSplitterNodeParser(embed_model=embed_model, chunk_size=512, chunk_overlap=20)
 
@@ -63,8 +45,19 @@ index = load_index_from_storage(storage_context)
 # Create the query engine
 query_engine = index.as_query_engine()
 
-query = "Tell me about EAMON CARTHY"
-
-resp = query_engine.query(query)
-
-print(resp)
+# Add a loop to provide options for querying or closing
+while True:
+    print("Options:")
+    print("1. Enter a query string")
+    print("2. Close the program")
+    choice = input("Choose an option (1 or 2): ")
+    
+    if choice == '1':
+        query = input("Enter your query: ")
+        resp = query_engine.query(query)
+        print(resp)
+    elif choice == '2':
+        print("Closing the program.")
+        break
+    else:
+        print("Invalid option. Please choose 1 or 2.")

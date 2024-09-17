@@ -6,3 +6,22 @@ Going to try and create this law abiding bot, trained on past irish law cases. G
 1. Data is loaded through connectors
 2. Data is indexed using llamaindex
 3. Data can then be queried.
+
+
+## Useful Response
+So it can be pretty tricky to ask the right question here, as lots of the time I just get some mumble garbage from on eof the documents. You have to be very specific, otherwise I can get some crazy hallucinations
+
+### Prompt
+I want 5 cases which are relevant to a landlord dispute with a tenant and why they are relevant. Each case must have been rulled in ireland
+### Response
+1. **Dunnes Stores (Ilac Centre) Ltd v. Irish Life Assurance plc**: This case is relevant as it deals with disputes between a landlord and tenant regarding the terms of the lease and the obligations of each party. It provides insights into how courts interpret lease agreements and the responsibilities of landlords in maintaining the property.
+ant regarding the terms of the lease and the obligations of each party. It provides insights into how courts interpret lease agreements and the responsibilities of landlords in maintaining the property.
+e responsibilities of landlords in maintaining the property.
+
+2. **Perfect Pies Ltd v. Chupn Ltd**: This case is pertinent because it addresses issues of lease termination and the conditions under which a2. **Perfect Pies Ltd v. Chupn Ltd**: This case is pertinent because it addresses issues of lease termination and the conditions under which a landlord can refuse to renew a lease. It highlights the importance of adhering to the terms of the lease and the legal grounds for eviction or non-renewal.
+
+3. **O'Mahony v. O'Connor**: This case is significant as it involves a dispute over rent arrears and the landlord's right to recover unpaid rent. It underscores the legal remedies available to landlords when tenants fail to meet their financial obligations under the lease.
+
+4. **Kenny Homes & Co Ltd v. Leonard**: This case is relevant as it discusses the landlord's duty to provide a habitable property and the tenant's right to withhold rent if the property is not maintained. It illustrates the balance of rights and responsibilities between landlords and tenants.
+
+5. **Irish Shell Ltd v. Elm Motors Ltd**: This case is important because it deals with the issue of subletting and the landlord's consent. It provides guidance on the conditions under which a tenant can sublet the property and the landlord's right to approve or deny such arrangements.
