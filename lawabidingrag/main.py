@@ -1,18 +1,4 @@
-from llama_index.core import (
-    VectorStoreIndex, 
-    SimpleDirectoryReader, 
-    StorageContext, 
-    ServiceContext, 
-    load_index_from_storage
-)
-from llama_index.core.node_parser import SemanticSplitterNodeParser
-from llama_index.embeddings.openai import OpenAIEmbedding
-from llama_index.readers.smart_pdf_loader import SmartPDFLoader
-from llama_index.llms.openai import OpenAI
-from llama_index.core import (download_loader, Settings)
-import os
-
-from lawabidingrag.LLMModels import OpenAILLMModel
+from core.LLMModels import OpenAILLMModel
 
 llm = OpenAILLMModel("gpt-4o", "text-embedding-ada-002", './storage_mini')
 
