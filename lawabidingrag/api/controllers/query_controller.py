@@ -1,5 +1,5 @@
 from flask import Blueprint
-from core.services.query_service import llm_query_service
+from core.services.llm_query_service import llm_query_service
 from flask import request, jsonify
 
 query_bp = Blueprint('query', __name__)
@@ -16,8 +16,8 @@ def query():
     if not querystring:
         return jsonify({"error": "querystring is required"}), 400
     
-    service = llm_query_service()
-    response = service.query(querystring)
+    service = llm_query_service(model_used)
+    response = service.basic_query(querystring)
     return jsonify(
         {
             "response": response,
