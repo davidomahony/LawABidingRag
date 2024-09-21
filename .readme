@@ -43,7 +43,11 @@ e responsibilities of landlords in maintaining the property.
 ### MVP
 - Frontend working with backend
 - Basic chatbot
-
+- Backend Endpoints
+    - Get version information
+    - Ask Questions
+    - Get past questions
+    - Give information on prompts
 
 ### Notes on flask
 Look at basic
