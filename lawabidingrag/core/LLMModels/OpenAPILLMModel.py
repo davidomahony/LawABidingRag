@@ -49,4 +49,4 @@ class OpenAILLMModel(LLMModel):
         self.load_data('C:/Users/daver/Desktop/Rag/law/SmallInput')
         ## Foails just below here for now
         response = self.query_engine.query(query)
-        return response
+        return response.response
